@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:youtube_clone/Screens/setting_profile.dart';
 
 class HomeScreenPage extends StatefulWidget {
   _HomePageScreen createState() => _HomePageScreen();
@@ -27,6 +28,7 @@ class _HomePageScreen extends State<HomeScreenPage> {
                     child: Column(
                       children: <Widget>[
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Container(
                               height: 20,
@@ -45,9 +47,6 @@ class _HomePageScreen extends State<HomeScreenPage> {
                                 ],
                               ),
                             ),
-                            const SizedBox(
-                              width: 50,
-                            ),
                             Container(
                               alignment: Alignment.centerRight,
                               child: Row(
@@ -64,7 +63,12 @@ class _HomePageScreen extends State<HomeScreenPage> {
                                       onPressed: () => {print("object")},
                                       icon: Icon(Icons.search_rounded)),
                                   IconButton(
-                                      onPressed: () => {print("object")},
+                                      onPressed: () => {
+                                            Navigator.of(context).push(
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        SettingProfilePage()))
+                                          },
                                       icon: Icon(Icons.person)),
                                 ],
                               ),
@@ -116,6 +120,7 @@ class _HomePageScreen extends State<HomeScreenPage> {
                       ],
                     )),
                 Container(
+                    margin: EdgeInsets.only(bottom: 5),
                     color: Colors.white,
                     child: Column(
                       children: <Widget>[
@@ -129,19 +134,24 @@ class _HomePageScreen extends State<HomeScreenPage> {
                             IconButton(
                                 onPressed: () => {print("object")},
                                 icon: Icon(Icons.video_label_rounded)),
-                            GestureDetector(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: Icon(Icons.add),
+                            OutlinedButton(
+                              onPressed: () {},
+                              child: const Icon(
+                                Icons.add,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                              style: OutlinedButton.styleFrom(
+                                shape: const CircleBorder(),
+                                padding: const EdgeInsets.all(8),
                               ),
                             ),
                             IconButton(
                                 onPressed: () => {print("object")},
-                                icon: Icon(Icons.search_rounded)),
+                                icon: const Icon(Icons.search_rounded)),
                             IconButton(
                                 onPressed: () => {print("object")},
-                                icon: Icon(Icons.person)),
+                                icon: const Icon(Icons.person)),
                           ],
                         ),
                       ],
