@@ -1,19 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SettingProfilePage extends StatefulWidget {
-  @override
-  _SettingProfilePage createState() => _SettingProfilePage();
-}
+class SettingProfilePage extends StatelessWidget {
+  const SettingProfilePage({Key? key}) : super(key: key);
 
-class _SettingProfilePage extends State<SettingProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        padding: EdgeInsets.only(top: 20),
         child: Column(
           children: <Widget>[
-            IconButton(onPressed: null, icon: Icon(Icons.close))
+            IconButton(
+                onPressed: null,
+                icon: Icon(
+                  Icons.close,
+                  size: 45,
+                )),
           ],
         ),
       ),
