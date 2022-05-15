@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/Model/SettingModel.dart';
+import 'package:youtube_clone/Screens/SettingsScreens/AboutUs.dart';
+import 'package:youtube_clone/Screens/home_screen_page.dart';
+import 'package:youtube_clone/helper/Helper.dart';
 
 import 'SettingsScreens/WatchOnTv.dart';
 
@@ -8,6 +12,13 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsPage extends State<Settings> {
+  List<SettingModel> settingsItems = <SettingModel>[];
+  @override
+  void initState() {
+    super.initState();
+    settingsItems = getSettingsItmes();
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -25,7 +36,10 @@ class _SettingsPage extends State<Settings> {
                 width: 10,
               ),
               IconButton(
-                  onPressed: () => {},
+                  onPressed: () => {
+                        Navigator.of(context).pop(MaterialPageRoute(
+                            builder: (context) => HomeScreenPage()))
+                      },
                   icon: Icon(
                     Icons.arrow_back,
                     size: 33,
@@ -151,7 +165,10 @@ class _SettingsPage extends State<Settings> {
             height: 35,
           ),
           GestureDetector(
-              onTap: () => {},
+              onTap: () => {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => AboutUs()))
+                  },
               child: Container(
                 margin: EdgeInsets.only(
                   top: 5,
@@ -165,5 +182,27 @@ class _SettingsPage extends State<Settings> {
         ],
       ),
     ));
+  }
+}
+
+class SettingItemTile extends StatelessWidget {
+  final id, title;
+  SettingItemTile({this.id, this.title});
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => {},
+      child: Container(
+        child: Padding(
+          padding: EdgeInsets.only(top: 10, left: 25, bottom: 10),
+          child: Column(children: [
+            Text(
+              title,
+              style: TextStyle(fontSize: 15, color: Colors.black),
+            ),
+          ]),
+        ),
+      ),
+    );
   }
 }

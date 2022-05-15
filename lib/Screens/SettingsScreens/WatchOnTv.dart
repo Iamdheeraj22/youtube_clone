@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:youtube_clone/Screens/SettingsScreens/LinkTv.dart';
 
 class WatchTvPage extends StatefulWidget {
   _WatchTv createState() => _WatchTv();
@@ -51,8 +52,11 @@ class _WatchTv extends State<WatchTvPage> {
               ),
             ),
           ),
+          SizedBox(
+            height: 25,
+          ),
           Padding(
-            padding: const EdgeInsets.only(top: 25.0, left: 25),
+            padding: const EdgeInsets.only(left: 25),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -70,16 +74,69 @@ class _WatchTv extends State<WatchTvPage> {
                 ),
                 TextButton(
                     onPressed: () => {}, child: Text("OPEN WI-FI SETTINGS")),
-                SizedBox(
-                  height: 50,
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 2,
-                )
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Divider(
+            color: Colors.black,
+            height: 2,
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Link with TV code",
+                  style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Text(
+                    "Check your phone settings and try again if that doesn't work,\nyou can also link your TV and phone using a TV code."),
+                SizedBox(
+                  height: 15,
+                ),
+                TextButton(
+                    onPressed: () => {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => LinkTvPage()))
+                        },
+                    child: Text("ENTER TV CODE")),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 25,
+          ),
+          Divider(
+            color: Colors.black,
+            height: 2,
+          ),
+          InkWell(
+            onTap: () => {},
+            child: Container(
+              margin:
+                  EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 150),
+              child: Text(
+                "Can't find your TV?",
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          Divider(
+            color: Colors.black,
+            height: 2,
+          ),
         ],
       )),
     );
